@@ -11,5 +11,6 @@
 
     <artifactId>api</artifactId>
     <name>Dubbo Spring Boot Sample : API</name>
+    <packaging>jar</packaging>
 
 </project>

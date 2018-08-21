@@ -1,6 +1,8 @@
 package com.wd.dubbo.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.wd.dubbo.pojo.LoginUser;
 import com.wd.dubbo.service.DemoService;
+import com.wd.dubbo.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,19 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping(value = "/demo")
-public class DemoConsumerController {
+@RequestMapping(value = "/login")
+public class LoginController {
 
     @Reference(
             version = "${dubbo.service.version}",
             application = "${dubbo.application.id}",
             registry = "${dubbo.registry.id}"
     )
-    private DemoService demoService;
+    private LoginService loginService;
 
-    @RequestMapping("/sayHello")
-    public String sayHello() {
-        return demoService.sayHello("xxx");
+    @RequestMapping("/user")
+    public LoginUser user() {
+        return loginService.getLoginUser(1);
     }
 
 }

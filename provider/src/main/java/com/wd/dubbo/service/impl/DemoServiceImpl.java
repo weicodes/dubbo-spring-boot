@@ -22,7 +22,7 @@ import com.wd.dubbo.filter.AppParamFilter;
 import com.wd.dubbo.service.DemoService;
 
 @Service(
-        version = "${service.version}",
+        version = "${dubbo.service.version}",
         application = "${dubbo.application.id}",
         protocol = "${dubbo.protocol.id}",
         registry = "${dubbo.registry.id}"

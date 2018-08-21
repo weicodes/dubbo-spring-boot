@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: spring-provider
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:9207/easy?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 1
+    driver-class-name: com.mysql.jdbc.Driver
+
+dubbo:
+  service:
+    version: 1.0
+  application:
+    id: dubbo-provider-id
+    name: dubbo-provider-name
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 20880
+    status: server
+  registry:
+    id: registry_zookeeper
+    address: zookeeper://192.168.101.54:2181
+  scan:
+    basePackages: com.wd.dubbo.service.impl
+  provider:
+    filter:
+
+mybatis:
+#  mapper-locations: classpath:META-INF/mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+#  type-aliases-package: com.wd.mylogin.model  # 注意：对应实体类的路径
+  configuration:
+    mapUnderscoreToCamelCase: true
+
+#pagehelper分页插件
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
